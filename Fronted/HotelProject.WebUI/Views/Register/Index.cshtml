@@ -1,0 +1,183 @@
+﻿@model CreateNewUserDto
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <title>Otel Kayıt Paneli</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont;
+            background: linear-gradient(135deg, #4f46e5, #9333ea);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .register-container {
+            width: 380px;
+            padding: 35px 30px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.92);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+            animation: fadeIn .6s ease;
+        }
+
+        @@keyframes fadeIn {
+            from
+
+        {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        }
+
+        .register-container h2 {
+            text-align: center;
+            margin-bottom: 8px;
+            color: #1f2937;
+        }
+
+        .register-container .subtitle {
+            text-align: center;
+            font-size: 14px;
+            color: #6b7280;
+            margin-bottom: 25px;
+        }
+
+        .input-group {
+            margin-bottom: 14px;
+        }
+
+            .input-group input {
+                width: 100%;
+                padding: 12px 14px;
+                border-radius: 10px;
+                border: 1.5px solid #e5e7eb;
+                font-size: 14px;
+                transition: all .25s ease;
+            }
+
+                .input-group input:focus {
+                    outline: none;
+                    border-color: #6366f1;
+                    box-shadow: 0 0 0 3px rgba(99, 102, 241, .15);
+                }
+
+        .text-warning {
+            font-size: 12px;
+            margin-top: 4px;
+            display: block;
+            color: #dc2626;
+        }
+
+        .btn-register {
+            margin-top: 10px;
+            width: 100%;
+            padding: 13px;
+            border-radius: 12px;
+            border: none;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            color: white;
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+            transition: transform .2s ease, box-shadow .2s ease;
+        }
+
+            .btn-register:hover {
+                transform: translateY(-1px);
+                box-shadow: 0 10px 20px rgba(99, 102, 241, .4);
+            }
+
+        .footer-text {
+            text-align: center;
+            margin-top: 18px;
+            font-size: 14px;
+            color: #6b7280;
+        }
+
+            .footer-text a {
+                color: #4f46e5;
+                text-decoration: none;
+                font-weight: 600;
+            }
+
+                .footer-text a:hover {
+                    text-decoration: underline;
+                }
+
+        @@media (max-width: 420px) {
+            .register-container
+
+        {
+            width: 90%;
+        }
+
+        }
+    </style>
+</head>
+<body>
+
+    <div class="register-container">
+        <h2>Hesap Oluştur</h2>
+        <div class="subtitle">Otel yönetim sistemine kayıt olun</div>
+
+        <form method="post">
+            <div class="input-group">
+                <input asp-for="Name" placeholder="Adınız" />
+                <span asp-validation-for="Name" class="text-warning"></span>
+            </div>
+
+            <div class="input-group">
+                <input asp-for="SurName" placeholder="Soyadınız" />
+                <span asp-validation-for="SurName" class="text-warning"></span>
+            </div>
+
+            <div class="input-group">
+                <input asp-for="UserName" placeholder="Kullanıcı Adı" />
+                <span asp-validation-for="UserName" class="text-warning"></span>
+            </div>
+
+            <div class="input-group">
+                <input asp-for="Mail" placeholder="E-posta Adresi" />
+                <span asp-validation-for="Mail" class="text-warning"></span>
+            </div>
+
+            <div class="input-group">
+                <input asp-for="Password" type="password" placeholder="Şifre" />
+                <span asp-validation-for="Password" class="text-warning"></span>
+            </div>
+
+            <div class="input-group">
+                <input asp-for="ConfirmPassword" type="password" placeholder="Şifre (Tekrar)" />
+                <span asp-validation-for="ConfirmPassword" class="text-warning"></span>
+            </div>
+
+            <button class="btn-register">Kayıt Ol</button>
+        </form>
+
+        <div class="footer-text">
+            Zaten hesabın var mı?
+            <a href="/Login/Index">Giriş Yap</a>
+        </div>
+    </div>
+
+</body>
+</html>
